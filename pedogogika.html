@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Педагогикалық әрекеттестік</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #f0f4f8;
+            overflow-x: hidden;
+        }
+
+        .slide {
+            width: 1280px;
+            height: 720px;
+            margin: 40px auto;
+            border-radius: 28px;
+            position: relative;
+            padding: 56px 64px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            color: #1e293b;
+        }
+
+        /* === SLIDE BACKGROUNDS === */
+        #slide1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        #slide2 {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+        }
+
+        #slide3 {
+            background: linear-gradient(160deg, #0f2027, #203a43, #2c5364);
+            color: #e2e8f0;
+        }
+
+        #slide4 {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+        }
+
+        #slide5 {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        #slide6 {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+        }
+
+        #slide7 {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        #slide8 {
+            background: #fafafa;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+        }
+
+        #slide9 {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: #064e3b;
+        }
+
+        #slide10 {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+        }
+
+        /* === ELEMENTS === */
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .tag-light {
+            background: rgba(255, 255, 255, 0.25);
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+
+        .tag-dark {
+            background: #f1f5f9;
+            color: #475569;
+        }
+
+        .tag-accent {
+            background: rgba(0, 0, 0, 0.15);
+            color: white;
+        }
+
+        .slide-title {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 8px;
+        }
+
+        .divider {
+            width: 64px;
+            height: 5px;
+            border-radius: 3px;
+            margin: 16px 0 24px;
+        }
+
+        .div-white {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .div-purple {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .div-teal {
+            background: linear-gradient(90deg, #2dd4bf, #14b8a6);
+        }
+
+        .div-pink {
+            background: linear-gradient(90deg, #f472b6, #e879f9);
+        }
+
+        .div-amber {
+            background: linear-gradient(90deg, #f59e0b, #ef4444);
+        }
+
+        .div-blue {
+            background: linear-gradient(90deg, #3b82f6, #06b6d4);
+        }
+
+        .div-green {
+            background: linear-gradient(90deg, #10b981, #34d399);
+        }
+
+        .card {
+            border-radius: 20px;
+            padding: 28px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+        }
+
+        .card-white {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .card-solid {
+            background: white;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .card-dark {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .card-colored {
+            border: none;
+        }
+
+        .item-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 18px;
+            border-radius: 14px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .item-row-light {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .item-row-light:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .item-row-solid {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+
+        .item-row-solid:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        .item-row-dark {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .icon-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .counter-box {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(30, 41, 59, 0.85);
+            backdrop-filter: blur(12px);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .counter-box button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 4px 8px;
+            border-radius: 8px;
+            transition: background 0.2s;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .counter-box button:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .progress-track {
+            width: 100px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: white;
+            border-radius: 2px;
+            transition: width 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide>* {
+            animation: slideUp 0.5s ease forwards;
+        }
+
+        .slide>*:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .slide>*:nth-child(2) {
+            animation-delay: 0.08s;
+        }
+
+        .slide>*:nth-child(3) {
+            animation-delay: 0.16s;
+        }
+
+        .slide>*:nth-child(4) {
+            animation-delay: 0.24s;
+        }
+
+        .slide>*:nth-child(5) {
+            animation-delay: 0.32s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Слайд 1: ТИТУЛ -->
+    <div class="slide" id="slide1">
+        <div class="flex flex-col items-center justify-center h-full text-center">
+            <div class="tag tag-light">
+                <i class="fas fa-graduation-cap"></i> Лекция 6
+            </div>
+            <h1 class="slide-title" style="font-size: 3.8rem;">Ата-аналармен<br>педагогикалық әрекеттестік</h1>
+            <div class="divider div-white mx-auto"></div>
+            <p class="text-xl opacity-90 max-w-2xl">
+                Мектептің тәрбие үдерісінде сынып жетекшісінің іс-әрекеті
+            </p>
+            <div class="mt-14 w-full max-w-3xl">
+                <div class="card card-white">
+                    <p class="font-semibold text-lg mb-4 opacity-90">Бөлімдер</p>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="item-row item-row-light">
+                            <div class="dot bg-white"></div>
+                            <span>6.1 Отбасы — әлеуметтендіру факторы</span>
+                        </div>
+                        <div class="item-row item-row-light">
+                            <div class="dot bg-white"></div>
+                            <span>6.2 Педагогикалық үдерісті ұйымдастыру</span>
+                        </div>
+                        <div class="item-row item-row-light">
+                            <div class="dot bg-white"></div>
+                            <span>6.3 Қызметтер, құқықтар мен міндеттер</span>
+                        </div>
+                        <div class="item-row item-row-light">
+                            <div class="dot bg-white"></div>
+                            <span>6.4 Кәсіби құзыреттілік</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Слайд 2 -->
+    <div class="slide" id="slide2">
+        <div class="tag tag-dark"><i class="fas fa-home"></i> 6.1 бөлім</div>
+        <h2 class="slide-title"
+            style="background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            Отбасы — Тұлға негізі</h2>
+        <div class="divider div-purple"></div>
+        <div class="grid grid-cols-2 gap-10 flex-1">
+            <div class="flex flex-col justify-center">
+                <div class="card card-solid mb-6" style="border-left: 4px solid #667eea;">
+                    <p class="text-lg leading-relaxed text-slate-600">
+                        Отбасы – баланың алғашқы тәрбиелік ортасы және қоғамға бейімделуінің негізгі көзі.
+                    </p>
+                </div>
+                <div class="space-y-3">
+                    <div class="item-row item-row-solid">
+                        <div class="icon-circle bg-indigo-100 text-indigo-600">⭐</div>
+                        <div>
+                            <p class="font-semibold">Мінез-құлық</p>
+                            <p class="text-sm text-slate-400">Қалыптасу процесі отбасынан басталады</p>
+                        </div>
+                    </div>
+                    <div class="item-row item-row-solid">
+                        <div class="icon-circle bg-purple-100 text-purple-600">💎</div>
+                        <div>
+                            <p class="font-semibold">Құндылықтар</p>
+                            <p class="text-sm text-slate-400">Негізгі адамгершілік құндылықтар үйретіледі</p>
+                        </div>
+                    </div>
+                    <div class="item-row item-row-solid">
+                        <div class="icon-circle bg-blue-100 text-blue-600">🤝</div>
+                        <div>
+                            <p class="font-semibold">Әлеуметтендіру</p>
+                            <p class="text-sm text-slate-400">Қоғамға бейімделу дағдылары</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center justify-center">
+                <div class="relative w-full h-full rounded-2xl overflow-hidden"
+                    style="background: linear-gradient(135deg, #ede9fe, #e0e7ff);">
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-8">
+                        <div
+                            style="font-size: 5rem; font-weight: 900; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                            №1</div>
+                        <p class="text-lg font-semibold text-indigo-700 mt-2">Тәрбиенің алғашқы ортасы</p>
+                        <div class="mt-8 w-full max-w-xs space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-2"><span class="text-slate-600">Әлеуметтік
+                                        даму</span><span class="font-bold text-indigo-600">85%</span></div>
+                                <div class="w-full h-2 bg-indigo-200 rounded-full">
+                                    <div class="h-full bg-indigo-500 rounded-full" style="width:85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2"><span class="text-slate-600">Эмоциялық
+                                        даму</span><span class="font-bold text-indigo-600">90%</span></div>
+                                <div class="w-full h-2 bg-purple-200 rounded-full">
+                                    <div class="h-full bg-purple-500 rounded-full" style="width:90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2"><span
+                                        class="text-slate-600">Адамгершілік</span><span
+                                        class="font-bold text-indigo-600">75%</span></div>
+                                <div class="w-full h-2 bg-violet-200 rounded-full">
+                                    <div class="h-full bg-violet-500 rounded-full" style="width:75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Слайд 3: Қызметтері -->
+    <div class="slide" id="slide3">
+        <div class="tag tag-accent"><i class="fas fa-star"></i> Функциялар</div>
+        <h2 class="slide-title text-white">Отбасының негізгі қызметтері</h2>
+        <div class="divider div-teal"></div>
+        <div class="grid grid-cols-3 gap-5 mt-4 flex-1 content-start">
+            <div class="card card-dark text-center">
+                <div class="text-4xl mb-3">📚</div>
+                <h3 class="font-bold text-lg mb-2 text-white">Тәрбиелік</h3>
+                <p class="text-sm opacity-70">Мәдениетке, тәртіпке, әдепке баулу.</p>
+            </div>
+            <div class="card card-dark text-center">
+                <div class="text-4xl mb-3">🤝</div>
+                <h3 class="font-bold text-lg mb-2 text-white">Әлеуметтік</h3>
+                <p class="text-sm opacity-70">Қоғамға бейімдеу, қарым-қатынас.</p>
+            </div>
+            <div class="card card-dark text-center">
+                <div class="text-4xl mb-3">💰</div>
+                <h3 class="font-bold text-lg mb-2 text-white">Экономикалық</h3>
+                <p class="text-sm opacity-70">Қажеттіліктерді қамтамасыз ету.</p>
+            </div>
+            <div class="card card-dark text-center">
+                <div class="text-4xl mb-3">💖</div>
+                <h3 class="font-bold text-lg mb-2 text-white">Эмоциялық</h3>
+                <p class="text-sm opacity-70">Махаббат пен қауіпсіздік сезімі.</p>
+            </div>
+            <div class="card card-dark text-center">
+                <div class="text-4xl mb-3">🎨</div>
+                <h3 class="font-bold text-lg mb-2 text-white">Рекреативтік</h3>
+                <p class="text-sm opacity-70">Мәдени демалыс пен даму.</p>
+            </div>
+            <div class="card card-dark text-center">
+                <div class="text-4xl mb-3">🛡️</div>
+                <h3 class="font-bold text-lg mb-2 text-white">Қорғаушылық</h3>
+                <p class="text-sm opacity-70">Қауіпсіздік пен қамқорлық.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Слайд 4 -->
+    <div class="slide" id="slide4">
+        <div class="tag tag-dark"><i class="fas fa-balance-scale"></i> Жүйелеу</div>
+        <h2 class="slide-title" style="color: #92400e;">Типтер мен Заңдар</h2>
+        <div class="divider div-amber"></div>
+        <div class="grid grid-cols-2 gap-10 flex-1">
+            <div>
+                <p class="text-lg font-bold text-amber-700 mb-4">Отбасы типтері</p>
+                <div class="space-y-3">
+                    <div class="item-row"
+                        style="background: #fef3c7; border: 1px solid #fde68a; border-left: 4px solid #f59e0b;">
+                        <span class="text-2xl">🏠</span>
+                        <span class="font-medium text-amber-900">Толық отбасы</span>
+                    </div>
+                    <div class="item-row"
+                        style="background: #fef3c7; border: 1px solid #fde68a; border-left: 4px solid #d97706;">
+                        <span class="text-2xl">🏠</span>
+                        <span class="font-medium text-amber-900">Толық емес отбасы</span>
+                    </div>
+                    <div class="item-row"
+                        style="background: #fef3c7; border: 1px solid #fde68a; border-left: 4px solid #b45309;">
+                        <span class="text-2xl">🏠</span>
+                        <span class="font-medium text-amber-900">Көпбалалы отбасы</span>
+                    </div>
+                    <div class="item-row"
+                        style="background: #fef3c7; border: 1px solid #fde68a; border-left: 4px solid #92400e;">
+                        <span class="text-2xl">🏠</span>
+                        <span class="font-medium text-amber-900">Қамқоршылықтағы отбасы</span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p class="text-lg font-bold text-amber-700 mb-4">Нормативтік негіздер</p>
+                <div class="card" style="background: white; border: 2px dashed #fbbf24; padding: 32px;">
+                    <div class="space-y-5">
+                        <div class="flex items-center gap-4">
+                            <i class="fas fa-check-circle text-xl text-amber-500"></i>
+                            <span class="text-lg text-slate-700">ҚР Конституциясы</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i class="fas fa-check-circle text-xl text-amber-500"></i>
+                            <span class="text-lg text-slate-700">«Білім туралы» заң</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i class="fas fa-check-circle text-xl text-amber-500"></i>
+                            <span class="text-lg text-slate-700">«Неке және отбасы» кодексі</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i class="fas fa-check-circle text-xl text-amber-500"></i>
+                            <span class="text-lg text-slate-700">«Бала құқықтары» заңы</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Слайд 5 -->
+    <div class="slide" id="slide5">
+        <div class="tag tag-light"><i class="fas fa-compass"></i> 6.2 бөлім</div>
+        <h2 class="slide-title">Тәрбие бағыттары</h2>
+        <div class="divider div-white"></div>
+        <div class="flex gap-6 flex-1">
+            <div class="w-1/3 card card-white flex flex-col items-center justify-center text-center">
+                <div class="text-5xl mb-4">🎒</div>
+                <p class="font-bold text-lg">Ата-ананың балаға тәрбиелік ықпал ету жүйесі</p>
+            </div>
+            <div class="w-2/3 grid grid-cols-2 gap-4">
+                <div class="card card-white flex items-center gap-4" style="border-left: 4px solid #fff;">
+                    <span class="text-3xl">🛠️</span>
+                    <span class="font-semibold text-lg">Еңбек тәрбиесі</span>
+                </div>
+                <div class="card card-white flex items-center gap-4" style="border-left: 4px solid #fff;">
+                    <span class="text-3xl">❤️</span>
+                    <span class="font-semibold text-lg">Адамгершілік</span>
+                </div>
+                <div class="card card-white flex items-center gap-4" style="border-left: 4px solid #fff;">
+                    <span class="text-3xl">🎭</span>
+                    <span class="font-semibold text-lg">Эстетикалық</span>
+                </div>
+                <div class="card card-white flex items-center gap-4" style="border-left: 4px solid #fff;">
+                    <span class="text-3xl">🏃</span>
+                    <span class="font-semibold text-lg">Дене тәрбиесі</span>
+                </div>
+                <div class="card card-white flex items-center gap-4" style="border-left: 4px solid #fff;">
+                    <span class="text-3xl">🇰🇿</span>
+                    <span class="font-semibold text-lg">Ұлттық тәрбие</span>
+                </div>
+                <div class="card card-white flex items-center gap-4" style="border-left: 4px solid #fff;">
+                    <span class="text-3xl">🧠</span>
+                    <span class="font-semibold text-lg">Интеллектуалдық</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Слайд 6 -->
+    <div class="slide" id="slide6">
+        <div class="tag tag-dark"><i class="fas fa-handshake"></i> Әрекеттестік</div>
+        <h2 class="slide-title"
+            style="background: linear-gradient(135deg, #ec4899, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            Әрекеттестік технологиясы</h2>
+
+        <div class="grid grid-cols-2 gap-10 flex-1">
+            <div class="card card-solid" style="border-top: 4px solid #8b5cf6;">
+                <p class="font-bold text-lg mb-4" style="color: #8b5cf6;">Формалары</p>
+                <div class="space-y-3">
+                    <div class="item-row item-row-solid">
+                        <div class="icon-circle" style="background: #f3e8ff;">📢</div>
+                        <span class="text-base">Ата-аналар жиналысы</span>
+                    </div>
+                    <div class="item-row item-row-solid">
+                        <div class="icon-circle" style="background: #fce7f3;">💬</div>
+                        <span class="text-base">Жеке кеңес беру</span>
+                    </div>
+                    <div class="item-row item-row-solid">
+                        <div class="icon-circle" style="background: #ede9fe;">🧘</div>
+                        <span class="text-base">Тренингтер, семинарлар</span>
+                    </div>
+                    <div class="item-row item-row-solid">
+                        <div class="icon-circle" style="background: #fae8ff;">🚪</div>
+                        <span class="text-base">Ашық есік күні</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center justify-center">
+                <div class="card text-center p-12"
+                    style="background: linear-gradient(135deg, #fdf4ff, #f5f3ff); border: 2px solid #e9d5ff; border-radius: 24px;">
+                    <div class="text-5xl mb-4">🎯</div>
+                    <p class="font-bold text-xl mb-3" style="color: #7c3aed;">Басты мақсат</p>
+                    <p class="text-base text-slate-600">Тәрбиені бір бағытта жүргізу және үлгерімді арттыру!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Слайд 7 -->
+    <div class="slide" id="slide7">
+        <div class="tag tag-light"><i class="fas fa-chalkboard-teacher"></i> 6.3 бөлім</div>
+        <h2 class="slide-title">Сынып жетекшісінің рөлі</h2>
+        <div class="divider div-white"></div>
+        <div class="flex gap-10 flex-1">
+            <div class="w-1/2">
+                <div class="card card-white h-full">
+                    <p class="font-bold text-lg mb-4 opacity-90">Негізгі қызметтер</p>
+                    <div class="space-y-3">
+                        <div class="item-row item-row-light">
+                            <i class="fas fa-check text-lg"></i>
+                            <span>Сынып ұжымын қалыптастыру</span>
+                        </div>
+                        <div class="item-row item-row-light">
+                            <i class="fas fa-check text-lg"></i>
+                            <span>Жоспарлау мен бақылау</span>
+                        </div>
+                        <div class="item-row item-row-light">
+                            <i class="fas fa-check text-lg"></i>
+                            <span>Ата-анамен байланыс</span>
+                        </div>
+                        <div class="item-row item-row-light">
+                            <i class="fas fa-check text-lg"></i>
+                            <span>Жеке дамуды қолдау</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-1/2 flex flex-col justify-center gap-6">
+                <div class="card card-white">
+                    <p class="text-xl font-semibold mb-2">Сынып жетекші –</p>
+                    <p class="opacity-80 text-base leading-relaxed">
+                        оқушының өміріне бағыт беретін, тәрбиелік процесті ұйымдастыратын, ата-ана мен мектеп арасындағы
+                        байланыс көпірі.
+                    </p>
+                </div>
+                <div class="grid grid-cols-3 gap-3">
+                    <div class="card card-white text-center py-5">
+                        <div class="text-2xl font-extrabold">24/7</div>
+                        <p class="text-xs mt-1 opacity-70">Қолдау</p>
+                    </div>
+                    <div class="card card-white text-center py-5">
+                        <div class="text-2xl font-extrabold">100%</div>
+                        <p class="text-xs mt-1 opacity-70">Жауапкершілік</p>
+                    </div>
+                    <div class="card card-white text-center py-5">
+                        <div class="text-2xl font-extrabold">∞</div>
+                        <p class="text-xs mt-1 opacity-70">Қамқорлық</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Слайд 8 -->
+    <div class="slide" id="slide8">
+        <div class="tag tag-dark"><i class="fas fa-gavel"></i> Құқық</div>
+        <h2 class="slide-title text-center"
+            style="background: linear-gradient(135deg, #059669, #dc2626); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            Құқықтар мен Міндеттер</h2>
+        <div class="divider mx-auto" style="background: linear-gradient(90deg, #059669, #dc2626);"></div>
+        <div class="grid grid-cols-2 gap-10 flex-1">
+            <div class="card card-solid" style="border-top: 4px solid #10b981;">
+                <p class="font-bold text-lg mb-3 text-emerald-600">Құқықтар</p>
+                <div class="space-y-3">
+                    <div class="item-row item-row-solid" style="border-left: 3px solid #10b981;">
+                        <div class="dot bg-emerald-500"></div>
+                        <span>Ақпарат алу</span>
+                    </div>
+                    <div class="item-row item-row-solid" style="border-left: 3px solid #10b981;">
+                        <div class="dot bg-emerald-500"></div>
+                        <span>Ата-анамен байланыс</span>
+                    </div>
+                    <div class="item-row item-row-solid" style="border-left: 3px solid #10b981;">
+                        <div class="dot bg-emerald-500"></div>
+                        <span>Кеңестерге қатысу</span>
+                    </div>
+                    <div class="item-row item-row-solid" style="border-left: 3px solid #10b981;">
+                        <div class="dot bg-emerald-500"></div>
+                        <span>Ұсыныс беру</span>
+                    </div>
+                    <div class="item-row item-row-solid" style="border-left: 3px solid #10b981;">
+                        <div class="dot bg-emerald-500"></div>
+                        <span>Шешім қабылдау</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card card-solid" style="border-top: 4px solid #ef4444;">
+                <p class="font-bold text-lg mb-3 text-red-500">Міндеттер</p>
+                <div class="space-y-3">
+                    <div class="item-row item-row-solid" style="border-left: 3px solid #ef4444;">
+                        <div class="dot bg-red-500"></div>
+                        <span>Тәрбие жоспарын орындау</span>
+                    </div>
+                    <div class="item-row item-row-solid" style="border-left: 3px solid #ef4444;">
+                        <div class="dot bg-red-500"></div>
+                        <span>Тәртіп пен қауіпсіздік</span>
+                    </div>
+                    <div class="item-row item-row-solid" style="border-left: 3px solid #ef4444;">
+                        <div class="dot bg-red-500"></div>
+                        <span>Тұрақты жұмыс</span>
+                    </div>
+                    <div class="item-row item-row-solid" style="border-left: 3px solid #ef4444;">
+                        <div class="dot bg-red-500"></div>
+                        <span>Құжаттарды жүргізу</span>
+                    </div>
+                    <div class="item-row item-row-solid" style="border-left: 3px solid #ef4444;">
+                        <div class="dot bg-red-500"></div>
+                        <span>Қолдау көрсету</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Слайд 9: Құзыреттілік -->
+    <div class="slide" id="slide9">
+        <div class="tag tag-accent"><i class="fas fa-gem"></i> 6.4 бөлім</div>
+        <h2 class="slide-title">Кәсіби Құзыреттілік</h2>
+        <div class="divider div-green"></div>
+        <div class="grid grid-cols-4 gap-4 flex-1 content-start">
+            <div class="card text-center"
+                style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(8px);">
+                <div class="text-3xl mb-2">🧠</div>
+                <p class="font-bold">Педагогикалық</p>
+            </div>
+            <div class="card text-center"
+                style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(8px);">
+                <div class="text-3xl mb-2">🧩</div>
+                <p class="font-bold">Психологиялық</p>
+            </div>
+            <div class="card text-center"
+                style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(8px);">
+                <div class="text-3xl mb-2">💬</div>
+                <p class="font-bold">Коммуникативтік</p>
+            </div>
+            <div class="card text-center"
+                style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(8px);">
+                <div class="text-3xl mb-2">📅</div>
+                <p class="font-bold">Ұйымдастырушылық</p>
+            </div>
+            <div class="card text-center"
+                style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(8px);">
+                <div class="text-3xl mb-2">⚖️</div>
+                <p class="font-bold">Құқықтық</p>
+            </div>
+            <div class="card text-center"
+                style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(8px);">
+                <div class="text-3xl mb-2">💻</div>
+                <p class="font-bold">Ақпараттық</p>
+            </div>
+            <div class="card text-center"
+                style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(8px);">
+                <div class="text-3xl mb-2">🔄</div>
+                <p class="font-bold">Рефлексивтік</p>
+            </div>
+            <div class="card text-center"
+                style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(8px);">
+                <div class="text-3xl mb-2">🌐</div>
+                <p class="font-bold">Мәдениетаралық</p>
+            </div>
+        </div>
+        <div class="card text-center mt-4"
+            style="background: rgba(255,255,255,0.25); border: 1px solid rgba(255,255,255,0.4);">
+            <p class="font-bold text-xl">Бұл құзыреттер жұмысты нәтижелі етеді!</p>
+        </div>
+    </div>
+
+    <!-- Слайд 10 -->
+    <div class="slide" id="slide10">
+        <div class="flex flex-col items-center justify-center h-full text-center">
+
+            <h2 class="slide-title" style="font-size: 3.5rem;">Қорытынды</h2>
+            <div class="divider div-white mx-auto"></div>
+            <div class="card card-white max-w-4xl mt-4">
+                <p class="text-xl leading-relaxed">
+                    Отбасы мен мектептің бірлескен жұмысы – оқушы тәрбиесінің басты кепілі!
+                </p>
+            </div>
+            <div class="mt-14 flex items-center gap-6">
+
+                <div class="text-left">
+                    <h3 class="text-2xl font-bold">Назарларыңызға рақмет!</h3>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 10;
+
+        function showSlide(n) {
+            document.querySelectorAll('.slide').forEach(s => {
+                s.style.display = 'none';
+            });
+            const slide = document.getElementById('slide' + n);
+            slide.style.display = 'flex';
+
+            // Reset animations
+            slide.querySelectorAll(':scope > *').forEach((child, i) => {
+                child.style.animation = 'none';
+                child.offsetHeight;
+                child.style.animation = `slideUp 0.5s ease forwards`;
+                child.style.animationDelay = `${i * 0.08}s`;
+            });
+
+            document.getElementById('slideCounterText').textContent = `${n} / ${totalSlides}`;
+            document.getElementById('progressBar').style.width = `${(n / totalSlides) * 100}%`;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide % totalSlides) + 1;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = currentSlide > 1 ? currentSlide - 1 : totalSlides;
+            showSlide(currentSlide);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            }
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            }
+        });
+
+        showSlide(1);
+    </script>
+</body>
+
+</html>
